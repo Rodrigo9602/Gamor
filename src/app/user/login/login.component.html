@@ -1,0 +1,62 @@
+<div class="limiter">
+    <div class="container-login100" [style.background-color]="mode ? '#f0f2f4':'#1b2028'">
+        <div class="wrap-login100" [style.background-color]="mode ? '#ffff':'#21272f'">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src={{loginImage}} alt="IMG">
+
+                <div class="selector">
+                    <button class="btn-switch" (click)="changeMode()">
+                        <div class="switchCircle" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                            <fa-icon class="modeIcon" [icon]="faIcon" [style.color]="mode ? '#f0f2f4':'#1b2028'"></fa-icon>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+
+            <form class="login100-form validate-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+                <span class="login100-form-title" [style.color]="mode ? ' #860caf':' #d08830'">
+                   Sign in your account
+                </span>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="userName" placeholder="username" #userName="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z0-9]" required>
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faUser" aria-hidden="true"></fa-icon>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass" placeholder="Password" #pass="ngModel" [(ngModel)]="user.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$" required>
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faLock"></fa-icon>
+                    </span>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" [style.background]="mode? 'linear-gradient(#6c1ae6 0%, #7e34ee 100%)': 'linear-gradient(#cf750d 0%, #d08830 100%)' ">
+                        Login
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                        Username / Password?
+                    </a>
+                </div>
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" [routerLink]="['/user/register']">
+                        Create your Account
+                        <fa-icon [icon]="faArrow" aria-hidden="true"></fa-icon>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

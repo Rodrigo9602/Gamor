@@ -1,0 +1,203 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" [style.background-color]="mode ? '#f0f2f4':'#1b2028'">
+
+    <button class="navbar-toggler d-flex flex-column justify-content-around" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+        aria-label="Toggle navigation" (click)="OnClickEvent()" [ngClass]="opened? '':'collapsed'">
+        <span class="toggler-icon top-bar" [style.background-color]="mode?'#d08830':'#860caf'"></span>
+        <span class="toggler-icon middle-bar" [style.background-color]="mode?'#d08830':'#860caf'"></span>
+        <span class="toggler-icon bottom-bar" [style.background-color]="mode?'#d08830':'#860caf'"></span>
+    </button>
+
+
+    <div id="navbarNavAltMarkup"></div>
+
+    <div class="navbar-links">
+        <div class="nav-link-base">
+            <a class="nav-link" [style.color]="mode ? '#505050':'white'" [routerLink]="['/']" >
+                Home
+            </a>
+        </div>
+        <div class="nav-link-base">
+            <a class="nav-link" [style.color]="mode ? '#505050':'#f0f2f4'"[routerLink]="['/stream/streams']">
+                Streams
+            </a>
+        </div>
+        <div class="nav-link-base">
+            <a class="nav-link" [style.color]="mode ? '#505050':'#f0f2f4'" [routerLink]="['/party/parties']">
+                Party
+            </a>
+        </div>
+        <div class="nav-link-base">
+            <a class="nav-link" [style.color]="mode ? '#505050':'#f0f2f4'" [routerLink]="['/premium/pricing']">
+                Premium
+            </a>
+        </div>
+    </div>
+
+
+    <div class="nav-brand">        
+        <h1 class="brand-link" [style.color]="mode ? '#505050':'#f0f2f4'">Gamor</h1>                
+    </div>
+    
+
+    <div class="user-section" *ngIf="!user">
+        <div class="nav-user">
+            <div class="userOP">
+                <a class="user-link" id="userL" [style.color]="mode ? '#505050':'#f0f2f4'" [routerLink]="['/user/login']">
+                    Sign In
+                </a>
+            </div>
+            <div class="userOp user-reg" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                <a class="user-link" id="userR" [routerLink]="['/user/register']" [style.color]="mode ? '#f0f2f4':'#505050'">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="selector">
+        <button class="btn-switch" (click)="changeMode()">
+            <div class="switchCircle" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                <fa-icon class="modeIcon" [icon]="faIcon" [style.color]="mode ? '#f0f2f4':'#1b2028'"></fa-icon>
+            </div>
+        </button>
+    </div>
+    
+
+</nav>
+
+
+<mat-sidenav-container [style.background-color]="mode ? '#f0f2f4':'#1b2028'">
+    <mat-sidenav [(opened)]="opened" [style.background-color]="mode ? '#f0f2f4':'#1b2028'">
+        <ul class="navbar-nav me-auto mt-5 mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item">
+                <a class="nav-link active " aria-current="page" [routerLink]="['/home']" [style.color]="mode ? '#505050':'#f0f2f4'">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active " [routerLink]="['/stream/streams']" [style.color]="mode ? '#505050':'#f0f2f4'">Streams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active " [routerLink]="['/party/parties']" [style.color]="mode ? '#505050':'#f0f2f4'">Party</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active " [routerLink]="['/premium/pricing']" [style.color]="mode ? '#505050':'#f0f2f4'">Premium</a>
+            </li>
+        </ul>
+        <div class="nav-user" *ngIf="!user">
+            <div class="userOP">
+                <a class="user-link" id="userL" [routerLink]="['/user/login']" [style.color]="mode ? '#505050':'#f0f2f4'">
+                    Sign In
+                </a>
+            </div>
+            <div class="userOp user-reg" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                <a class="user-link" id="userR" [routerLink]="['/user/register']" [style.color]="mode ? '#f0f2f4':'#505050'">
+                    Create Account
+                </a>
+            </div>
+        </div>
+
+    </mat-sidenav>
+
+
+    <!---Main Board-->
+    <div class="mainBoard">
+        <div class="user-streaming" [style.background-color]="mode ? '#ffff':'#21272f'">
+            <div class="streaming-header">
+                <h1 [style.color]="mode ? '#505050':'#f0f2f4'">start</h1>
+                <h1 [style.color]="mode ? '#d08830':'#860caf'">streaming</h1>
+                <h1 [style.color]="mode ? '#505050':'#f0f2f4'">games</h1>
+                <h1 [style.color]="mode ? '#505050':'#f0f2f4'">differently</h1>
+            </div>
+            <p [style.color]="mode ? '#505050':'#f0f2f4'">gamor now has <a class="stream-link" [routerLink]="['/party']" [style.color]="mode ? '#505050':'#f0f2f4'">stream party</a> platform
+            </p>
+            <div class="nav-user" *ngIf="!user">
+                <div class="userOp user-reg-Op" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                    <a class="user-link" id="userROp" [routerLink]="['/user/register']" [style.color]="mode ? '#f0f2f4':'#505050'">
+                        Create Account
+                    </a>
+                </div>
+                <div class="userOP">
+                    <a class="user-link" id="userL" [routerLink]="['/user/login']" [style.color]="mode ? '#505050':'#f0f2f4'">
+                        Sign In
+                    </a>
+                </div>
+            </div>
+            <div class="streaming-header" *ngIf="user">
+                <h1 class="welcomeMsg">Welcome back {{user}}!</h1>
+            </div>
+        </div>
+
+
+        <div class="anouncement" [style.background-color]="mode ? '#7e34ee':'#d08830'">
+            <h3 class="anouncement-title">Fornite New Season</h3>
+            <p class="anouncement-sub" [style.color]="mode ? '#5d0a79':'#db6923'" >Join Live Stream</p>
+            <div class="images-wrapper">
+                <div class="icon-wrapper" [style.box-shadow]="mode ? '2px 2px 3px 4px rgba(53, 24, 160, 0.2)': '2px 2px 3px 4px rgba(160, 106, 24, 0.2)'">
+                    <fa-icon [icon]="faUserPlus" class="tempIcon"></fa-icon>
+                </div>
+            </div>
+            <div class="tempor">
+                <h3 class="season-time" [style.color]="mode ? '#860caf':'#d08830'" >11:45</h3>
+            </div>
+            <div class="images-wrapper">
+                <div class="small-img left-image" [style.box-shadow]="mode ? '2px 2px 3px 4px rgba(53, 24, 160, 0.2)': '2px 2px 3px 4px rgba(160, 106, 24, 0.2)'">
+                    <img class="small" src={{leftImg}}>
+                </div>
+                <div class="left-image-icon" *ngIf="mode" [style.box-shadow]="mode ? '2px 2px 3px 4px rgba(53, 24, 160, 0.2)': '2px 2px 3px 4px rgba(160, 106, 24, 0.2)'">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                </div>
+
+                <img class=" season-image" src={{imgAdd}} alt="light-image" [style.margin-top]="mode? '0px': '-20px'">
+
+                <div class="small-img right-image" [style.box-shadow]="mode ? '2px 2px 3px 4px rgba(53, 24, 160, 0.2)': '2px 2px 3px 4px rgba(160, 106, 24, 0.2)'">
+                    <img class="small" src={{rightImg}}>
+                </div>
+                <div class="right-image-icon" *ngIf="!mode" [style.box-shadow]="mode ? '2px 2px 3px 4px rgba(53, 24, 160, 0.2)': '2px 2px 3px 4px rgba(160, 106, 24, 0.2)'">
+                    <fa-icon [icon]="faShield"></fa-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="search" [style.background-color]="mode ? '#ffff':'#21272f'">
+            <div class="platform">
+                <h1 class="platformIndex">01. </h1>
+                <h1 class="platformCategory" [style.color]="mode ? '#505050':'#f0f2f4'">Choose Platform</h1>
+            </div>
+            <div class="wrapper" >
+                <input type="radio" name="slider" id="table-1">
+                <input type="radio" name="slider" id="table-2" checked>
+                <input type="radio" name="slider" id="table-3">
+                <header >
+                    <label for="table-1" class="table-1" ><fa-icon [icon]="faParty" ></fa-icon>Party</label>
+                    <label for="table-2" class="table-2" ><fa-icon [icon]="faMatch" ></fa-icon>Match</label>
+                    <label for="table-3" class="table-3" ><fa-icon [icon]="faStream"></fa-icon>Streams</label>
+                    <div class="slider" [style.background-color]="mode ? '#7e34ee':'#d08830'"></div>
+                </header>
+            </div>
+
+            <div class="game">
+                <h1 class="platformIndex">02. </h1>
+                <h1 class="platformCategory" [style.color]="mode ? '#505050':'#f0f2f4'">Searching Game</h1>
+            </div>
+            <div class="game-stream">                
+                    <select class="game-name" [(ngModel)]="option">
+                        <option value="" disabled>Select game</option>
+                        <option value="cod" >COD Warzone</option>
+                        <option value="dota" >Dota 2</option>
+                        <option value="fornite" >Fornite</option>
+                        <option value="cyber" >Cyber Punk</option>
+                    </select>               
+            </div>
+            <div class="streamers">                              
+                <ul class="gamers" *ngFor="let gamer of gamers; let i = index">
+                    <li>
+                        {{i+1}} {{gamer.name}}                       
+                    </li>                    
+                </ul>
+                <button class="btn search-btn" (click)="searchGamers()" [style.background]="mode? 'linear-gradient(#6c1ae6 0%, #7e34ee 100%)': 'linear-gradient(#cf750d 0%, #d08830 100%)' ">Search Now</button>
+            </div>
+
+        </div>
+    </div>
+    <!--End of Main Board-->
+   
