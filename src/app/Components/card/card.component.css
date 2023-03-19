@@ -1,59 +1,67 @@
-.article {
-	padding: 40px;
-	transition: all 0.3s ease;
+.index{    
+    margin-left: 20px;
+    margin-top: 10px;
+    font-family: 'custom', 'arial', sans-serif;
+    font-size: 18px;    
 }
-.medium{
-	padding: 40px;
-	transition: all 0.3s ease;
+.content{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
-.small{
-	padding: 40px;
-	transition: all 0.3s ease;
-	width: 300px;
+.action-buttons{
+    display: none;
 }
-.medium:hover{
-	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	transform: scale(1.1);
+.categories-title{
+    font-family: 'custom', 'arial', sans-serif;
+    font-size: 18px;
 }
-.small:hover{
-	-webkit-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	-moz-box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	box-shadow: 0px 0px 7px 0px rgba(214,214,214,1);
-	transform: scale(1.1);
+.categories-video{
+    display: none;
 }
-
-.article-title {
-	font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-	margin-top: 30px;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.container:hover .content-section .content .categories-title{
+    display: none;    
 }
-
-.article-text{
-	font-size: 1.2rem;
-	font-weight: 200;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.article-link{
-	text-decoration: none;
-	color: #31ccee;
-	font-size: 1.2rem;
-	font-weight: 200;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.container:hover .content-section .content .categories-video{
+    display: flex; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: cover;
+    border-radius: 18px;        
 }
 
-.article-icon{
-	font-size: 6em;
-	color: #31ccee;
-	margin-bottom: 15px;
+@media (max-width:992px) {
+    .container .content-section .content .categories-video{
+        display: flex; 
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;       
+        object-fit: cover;
+        border-radius: 18px;        
+    }
+    .action-buttons{
+        display: flex;
+        position: absolute;
+        top: 160px;
+    }
 }
-
-.article-image{
-	object-fit: cover;
-	width: 200px;
-	border-radius: 15px;
+@media (min-width:651.99px) and (max-width:767.99px){
+    .action-buttons{
+        display: flex;
+        position: absolute;
+        top: 250px;
+    }
 }

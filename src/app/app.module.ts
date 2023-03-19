@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,8 @@ import { appRoutingProviders, routing } from './app.routing';
 import { CardComponent } from './Components/card/card.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ErrorComponent } from './error/error.component';
+
 
 
 
@@ -20,6 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     AppComponent,
     HomeComponent,    
     CardComponent,
+    ErrorComponent
     
     
   ],
@@ -30,7 +34,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FontAwesomeModule,
     MatToolbarModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

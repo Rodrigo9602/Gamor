@@ -43,7 +43,8 @@
     <div class="user-section" *ngIf="!user">
         <div class="nav-user">
             <div class="userOP">
-                <a class="user-link" id="userL" [style.color]="mode ? '#505050':'#f0f2f4'" [routerLink]="['/user/login']">
+                <a class="user-link" id="userL" [style.color]="mode ? '#505050':'#f0f2f4'" href="
+                https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=683flemowotj1459z7x1qrbpqrom4p&redirect_uri=http://localhost:4200/user/login&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls">
                     Sign In
                 </a>
             </div>
@@ -83,13 +84,14 @@
                 <a class="nav-link active " [routerLink]="['/premium/pricing']" [style.color]="mode ? '#505050':'#f0f2f4'">Premium</a>
             </li>
         </ul>
-        <div class="nav-user" *ngIf="!user">
+        <div class="nav-user-board" *ngIf="!user">
             <div class="userOP">
-                <a class="user-link" id="userL" [routerLink]="['/user/login']" [style.color]="mode ? '#505050':'#f0f2f4'">
+                <a class="user-link" id="userLink" [style.color]="mode ? '#505050':'#f0f2f4'" href="
+                https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=683flemowotj1459z7x1qrbpqrom4p&redirect_uri=http://localhost:4200/user/login&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls">
                     Sign In
                 </a>
             </div>
-            <div class="userOp user-reg" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+            <div class="userOp user-reg" id="nav-btn" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
                 <a class="user-link" id="userR" [routerLink]="['/user/register']" [style.color]="mode ? '#f0f2f4':'#505050'">
                     Create Account
                 </a>
@@ -117,7 +119,8 @@
                     </a>
                 </div>
                 <div class="userOP">
-                    <a class="user-link" id="userL" [routerLink]="['/user/login']" [style.color]="mode ? '#505050':'#f0f2f4'">
+                    <a class="user-link" id="userL" [style.color]="mode ? '#505050':'#f0f2f4'" href="
+                    https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=683flemowotj1459z7x1qrbpqrom4p&redirect_uri=http://localhost:4200/user/login&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls">
                         Sign In
                     </a>
                 </div>
@@ -164,34 +167,48 @@
                 <h1 class="platformCategory" [style.color]="mode ? '#505050':'#f0f2f4'">Choose Platform</h1>
             </div>
             <div class="wrapper" >
-                <input type="radio" name="slider" id="table-1">
-                <input type="radio" name="slider" id="table-2" checked>
-                <input type="radio" name="slider" id="table-3">
+                <input type="radio" name="slider" id="table-1" value="Games" #slider="ngModel" [(ngModel)]="searchEl.key">
+                <input type="radio" name="slider" id="table-2" value="Streamers" #slider="ngModel" [(ngModel)]="searchEl.key" checked>
+                <input type="radio" name="slider" id="table-3" value="Sports" #slider="ngModel" [(ngModel)]="searchEl.key">
                 <header >
-                    <label for="table-1" class="table-1" ><fa-icon [icon]="faParty" ></fa-icon>Party</label>
-                    <label for="table-2" class="table-2" ><fa-icon [icon]="faMatch" ></fa-icon>Match</label>
-                    <label for="table-3" class="table-3" ><fa-icon [icon]="faStream"></fa-icon>Streams</label>
+                    <label for="table-1" class="table-1" ><fa-icon [icon]="faParty" ></fa-icon>Games</label>
+                    <label for="table-2" class="table-2" ><fa-icon [icon]="faMatch" ></fa-icon>Streamers</label>
+                    <label for="table-3" class="table-3" ><fa-icon [icon]="faStream"></fa-icon>Sports</label>
                     <div class="slider" [style.background-color]="mode ? '#7e34ee':'#d08830'"></div>
                 </header>
             </div>
 
             <div class="game">
                 <h1 class="platformIndex">02. </h1>
-                <h1 class="platformCategory" [style.color]="mode ? '#505050':'#f0f2f4'">Searching Game</h1>
+                <h1 class="platformCategory" [style.color]="mode ? '#505050':'#f0f2f4'">Lets search {{searchEl.key}} </h1>
             </div>
-            <div class="game-stream">                
-                    <select class="game-name" [(ngModel)]="option">
-                        <option value="" disabled>Select game</option>
-                        <option value="cod" >COD Warzone</option>
-                        <option value="dota" >Dota 2</option>
-                        <option value="fornite" >Fornite</option>
-                        <option value="cyber" >Cyber Punk</option>
-                    </select>               
+            <div class="game-stream" [style.background-color]="mode ? '#ffff':'#21272f'">                
+                    <select class="video-selector" *ngIf="searchEl.key=='Games'" #selector="ngModel" [(ngModel)]="searchEl.name" [style.background-color]="mode ? '#ffff':'#21272f'" [style.color]="mode ? '#860caf':'#d08830'">
+                        <option disabled>Select videogame</option>
+                        <option value="cod">Call of Duty: MW3</option>
+                        <option value="fnt">Fornite</option>
+                        <option value="dot">Dota 2</option>                        
+                        <option value="asc">Assasains Creed</option>
+                    </select> 
+                    <select class="video-selector" *ngIf="searchEl.key=='Streamers'" #selector="ngModel" [(ngModel)]="searchEl.name" [style.background-color]="mode ? '#ffff':'#21272f'" [style.color]="mode ? '#860caf':'#d08830'">
+                        <option disabled>Select streamer</option>
+                        <option value="aup">Auronplay</option>
+                        <option value="nin">Ninja</option>
+                        <option value="iba">Ibai</option>
+                        <option value="rub">Rubius</option>                        
+                    </select>
+                    <select class="video-selector" *ngIf="searchEl.key=='Sports'" #selector="ngModel" [(ngModel)]="searchEl.name" [style.background-color]="mode ? '#ffff':'#21272f'" [style.color]="mode ? '#860caf':'#d08830'">
+                        <option disabled>Select clip thema</option>
+                        <option value="bsk">Basketball</option>
+                        <option value="bas">Baseball</option>
+                        <option value="kl">Kings League</option>
+                        <option value="fot">Football</option>                       
+                    </select>            
             </div>
-            <div class="streamers">                              
+            <div class="streamers" [style.background-color]="mode ? '#ffff':'#21272f'">                              
                 <ul class="gamers" *ngFor="let gamer of gamers; let i = index">
                     <li>
-                        {{i+1}} {{gamer.name}}                       
+                        <a class="gamers-link" href={{gamer.path}} [style.color]="mode ? '#860caf':'#d08830'">{{i+1}} {{gamer.title}}</a>                      
                     </li>                    
                 </ul>
                 <button class="btn search-btn" (click)="searchGamers()" [style.background]="mode? 'linear-gradient(#6c1ae6 0%, #7e34ee 100%)': 'linear-gradient(#cf750d 0%, #d08830 100%)' ">Search Now</button>
@@ -200,4 +217,25 @@
         </div>
     </div>
     <!--End of Main Board-->
+
+
+    <!--Trending Categories-->
+        <div class="trend">
+            <div class="header-wrapper">
+                <h1 class="trend-header" [style.color]="mode ? '#d08830':'#860caf'">Trending Categories</h1>
+            </div>            
+            <div class="container">
+                <div class="row">
+                    <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-3" *ngFor="let category of categories; let i = index">
+                        <div class="card"  [style.background-color]="mode ? '#ffff':'#21272f'">
+                            <app-card [mode]="mode" [name]="category.name" [index]="i" [image]="category.img" ></app-card>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>
+        </div>       
+                   
+        
+        
+    <!--End of Trending Categories-->
    

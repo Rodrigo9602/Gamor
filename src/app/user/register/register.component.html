@@ -1,1 +1,90 @@
-<p>register works!</p>
+<div class="limiter">
+    <div class="container-login100" [style.background-color]="mode ? '#f0f2f4':'#1b2028'">
+        <div class="wrap-login100" [style.background-color]="mode ? '#ffff':'#21272f'">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src={{loginImage}} alt="IMG">
+
+                <div class="selector">
+                    <button class="btn-switch" (click)="changeMode()">
+                        <div class="switchCircle" [style.background-color]="mode ? '#1b2028':'#f0f2f4'">
+                            <fa-icon class="modeIcon" [icon]="faIcon" [style.color]="mode ? '#f0f2f4':'#1b2028'"></fa-icon>
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+
+            <form class="login100-form validate-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+                <span class="login100-form-title" [style.color]="mode ? ' #1e32ec':' #d08830'">
+                   Create new account
+                </span>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="text" name="userName" placeholder="enter username" #userName="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z1-9]+" required/>
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faUser" aria-hidden="true"></fa-icon>
+                    </span>
+                </div>
+                <small *ngIf="!userName.valid && userName.touched" class="alert-validate">
+                    Username must contain letters and numbers
+                </small>                
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass" placeholder="enter password" #pass="ngModel" [(ngModel)]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[1-9])(?=.*[@$!%*?&])[A-Za-z1-9\d@$!%*?&]{8,10}$" required/>
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faLock"></fa-icon>
+                    </span>
+                </div>
+
+                <small *ngIf="!pass.valid && pass.touched" class="alert-validate">
+                   Password must contain at least:
+                    8 characters,
+                    1 Uppercase letter,
+                    1 Lowercase letter,
+                    1 number,
+                    1 no alphanumeric character
+                </small>
+
+                <div class="wrap-input100 validate-input">
+                    <input class="input100" type="password" name="pass_comp" placeholder="repeat password " #passC="ngModel" [(ngModel)]="passComp" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[1-9])(?=.*[@$!%*?&])[A-Za-z1-9\d@$!%*?&]{8,10}$" required/>
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faLock"></fa-icon>
+                    </span>
+                </div>
+
+                <small *ngIf="password!=passComp" class="alert-validate">
+                    Password and its verification must be the same.                    
+                 </small>
+                
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="Email">
+                    <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
+                    <span class="symbol-input100">
+                        <fa-icon [icon]="faEmail" aria-hidden="true"></fa-icon>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" [style.background]="mode? 'linear-gradient(#6c1ae6 0%, #7e34ee 100%)': 'linear-gradient(#cf750d 0%, #d08830 100%)' ">
+                        Register
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Already have an account? Then just
+                    </span>
+                    <a class="txt2" [routerLink]="['/user/login']">
+                       Login
+                    </a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+

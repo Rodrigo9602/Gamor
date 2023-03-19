@@ -210,9 +210,21 @@ mat-sidenav{
         justify-content: center;
         
     }
+    .nav-user-board{
+        display: flex ;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap:30px;
+    }
+    #userLink{
+        margin-left: 120px;
+    }  
     #userL{
         margin-left: 75px;
-    }   
+    } 
+      
+    
     
  }
 
@@ -449,6 +461,18 @@ mat-sidenav{
      border-radius: 30px;
      background-color: #fff;
 }
+.search-input{
+    width: 100%;
+    height:50px;
+    border: none; 
+    border-top-right-radius: 18px; 
+    border-top-left-radius: 18px; 
+}
+.search-input:focus{
+    outline: none;
+    box-shadow: 2px 2px 3px 4px rgba(52, 58, 64, 0.2);;
+
+}
 header label{
     height: 100%;
     width: 100%;
@@ -512,6 +536,7 @@ header .slider{
     align-items: center;
     justify-content: center;
     gap: 80px;
+   
     
 }
 .game-stream select{
@@ -533,10 +558,21 @@ header .slider{
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
     margin-top: -45px;
+    max-height: 270px;
+    overflow-y: scroll;
 }
-.gamers{
-    padding-top: 10px;
-     
+.gamers:nth-child(1){
+    margin-top: 15px;
+}
+.gamers-link{
+    text-decoration: none;  
+    font-family: 'custom', 'arial', sans-serif;
+    font-size: 15px;
+}
+.video-selector{
+    border:none;
+    width: 100%;
+    height: 25px;
 }
 .userIcon{
     width: 20px;
@@ -587,7 +623,7 @@ header .slider{
 
 }
 
-@media (max-width:1449px){
+@media (max-width:1459px){
     .user-streaming, .search{
         height: 600px;
         flex-basis: 800px; 
@@ -641,4 +677,85 @@ header .slider{
      .userOP{
         margin-left: -20%;
      }
+     
+}
+
+/*Trending Categories*/
+.trend{
+    margin-top: 300px;    
+
+}
+.card{
+    width:325px;
+    height:150px;
+    border:none;
+    margin-bottom: 10px; 
+    border-radius: 18px;
+}
+.row{
+    justify-content: center;
+    align-items: center;
+    margin-left: -40px;
+}
+.header-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trend-header{
+    font-family: 'custom', 'arial', sans-serif;
+    font-size: 20px;
+
+}
+
+@media (max-width:1399.99px) {
+    .card{
+        width:290px;
+        height:150px;
+        border:none;
+        margin-bottom: 20px;
+        
+    }
+    .row{
+        margin-left: -50px;
+    }
+}
+@media (max-width:1199.99px){
+    .card{
+        width:400px;
+        height:200px;
+        border:none;
+        margin-bottom: 20px;
+        
+    }
+    .row{
+        margin-left: 30px;
+    }
+}
+
+@media (max-width:991.99px){
+    .row{
+        margin-left: -10%;
+        margin-right: -10%;
+    }
+}
+@media (max-width:767.99px){
+    .card{
+        width:600px;
+        height:300px;
+        border:none;
+        margin-bottom: 20px;
+        
+    }
+}
+@media (max-width:650.99px){
+    .card{
+        width:360px;
+        height:200px;
+        border:none;
+        margin-bottom: 20px;
+        
+    }
+    
 }

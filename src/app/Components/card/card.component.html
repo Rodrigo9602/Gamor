@@ -1,7 +1,28 @@
-<article [ngClass]="Class" >                            
-    <fa-icon class="article-icon" [icon]="Icon" *ngIf="Icon"></fa-icon>
-    <img class="article-image" [src]="Image" *ngIf="Image">
-    <h3 class=" article-title">{{Header}}</h3>
-    <p class="article-text">{{Text}}</p>
-    <a href="#" class="article-link">Visitar</a>
-</article>
+    <div class="container">
+        <div class="content-section">
+            <div class="index">
+                <small class="corner-backslash" [style.color]="mode?'#7e34ee':'#d08830'">/</small>
+                <small class="corner-index" [style.color]="mode?'#7e34ee':'#d08830'">0{{index}}</small>
+            </div>
+            <div class="content">
+                <p class="categories-title" >{{name}}</p>
+                <video class="categories-video" #myVideo (mouseenter)="play()" (mouseout)="pause()" src={{image}}>                   
+                </video>        
+                
+                
+                <div class="action-buttons">
+                    <button class="btn btn-action" (click)="play()" >
+                        <fa-icon [icon]="faPlay" [style.color]="mode?'#7e34ee':'#d08830'"></fa-icon>
+                    </button>
+                    <button class="btn btn-action" (click)="pause()">
+                        <fa-icon [icon]="faPause" [style.color]="mode?'#7e34ee':'#d08830'"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+

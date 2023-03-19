@@ -15,31 +15,46 @@
             </div>
 
             <form class="login100-form validate-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
-                <span class="login100-form-title" [style.color]="mode ? ' #860caf':' #d08830'">
+                <span class="login100-form-title" [style.color]="mode ? ' #1e32ec':' #d08830'">
                    Sign in your account
                 </span>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="userName" placeholder="username" #userName="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z0-9]" required>
+                    <input class="input100" type="text" name="userName" placeholder="username" #userName="ngModel" [(ngModel)]="user.name" pattern="[a-zA-Z1-9]+" required/>
                     <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
                     <span class="symbol-input100">
                         <fa-icon [icon]="faUser" aria-hidden="true"></fa-icon>
                     </span>
                 </div>
+                <small *ngIf="!userName.valid && userName.touched" class="alert-validate">
+                    Username must contain letters and numbers
+                </small>                
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="password" name="pass" placeholder="Password" #pass="ngModel" [(ngModel)]="user.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$" required>
+                    <input class="input100" type="password" name="pass" placeholder="Password" #pass="ngModel" [(ngModel)]="user.password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[1-9])(?=.*[@$!%*?&])[A-Za-z1-9\d@$!%*?&]{8,10}$" required/>
                     <span class="focus-input100" [style.color]="mode ? ' #860caf':' #d08830'"></span>
                     <span class="symbol-input100">
                         <fa-icon [icon]="faLock"></fa-icon>
                     </span>
                 </div>
-                
+
+                <small *ngIf="!pass.valid && pass.touched" class="alert-step" >
+                   Password must contain at least:
+                    8 characters,
+                    1 Uppercase letter,
+                    1 Lowercase letter,
+                    1 number,
+                    1 no alphanumeric character
+                </small>                
+
+
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" [style.background]="mode? 'linear-gradient(#6c1ae6 0%, #7e34ee 100%)': 'linear-gradient(#cf750d 0%, #d08830 100%)' ">
-                        Login
+                        Log In
                     </button>
                 </div>
+
+                
 
                 <div class="text-center p-t-12">
                     <span class="txt1">
