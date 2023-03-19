@@ -27,5 +27,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Automate Build using Docker
-Once you have your docker engine running, open a terminal on your app and use `docker build -t gamor .`, this command will download all dependencies for the app. When it finish, use `docker images` and make sure our images was created. Finally use `docker run -d -it -p 80:80 gamor` for run the image on port 80. 
+Once you have your docker engine running, open a terminal on your app and use `docker build -t gamor .`, this command will download all dependencies for the app. When it finish, use `docker images` and make sure our images was created. Finally use `docker run -d -it -p 4200:4200 gamor` for run the image on port 4200. 
 Open browser on localhost:80 and the app should be running.
